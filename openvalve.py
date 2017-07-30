@@ -4,7 +4,7 @@ import time
 import pygame
 
 pygame.mixer.init()
-pygame.mixer.music.load("Siren.mp3")
+pygame.mixer.music.load("Siren.wav")
 
 GPIO.setmode(GPIO.BCM)
 
