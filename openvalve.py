@@ -1,8 +1,14 @@
 #!/usr/bin/python
 import RPi.GPIO as GPIO
 import time
+import pygame
+
+pygame.mixer.init()
+pygame.mixer.music.load("Siren.mp3")
 
 GPIO.setmode(GPIO.BCM)
+
+print "Welcome the RN Ballast Control System.  Unauthorised access is prohibited."
 
 # Create list with pin numbers used in script
 
@@ -18,10 +24,12 @@ SleepTimeL = 10
 
 try:
 # Change this to the pin where your solenoid is connected on your Pi GPIO
+
 GPIO.output(17, GPIO.LOW) 
 time.sleep(SleepTimeL);
 GPIO.cleanup()
-print "Ship Ballast Valve Opened!!"
+print "Ship Ballast Valve Opened!"
+pygame.mixer.Sound("Siren.mp3")
 
 # End program cleanly with keyboard
 except KeyboardInterrupt:
